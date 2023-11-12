@@ -7,6 +7,22 @@ public class ListaCircularDoble<T> {
     private NodoDoble<T> inicio;
     private NodoDoble<T> fin;
 
+    public NodoDoble<T> getInicio() {
+        return inicio;
+    }
+
+    public void setInicio(NodoDoble<T> inicio) {
+        this.inicio = inicio;
+    }
+
+    public NodoDoble<T> getFin() {
+        return fin;
+    }
+
+    public void setFin(NodoDoble<T> fin) {
+        this.fin = fin;
+    }
+
     public ListaCircularDoble() {
         inicio = null;
         fin = null;
@@ -29,19 +45,22 @@ public class ListaCircularDoble<T> {
         }
     }
 
+
     public void insertaFin(T dato) {
         NodoDoble<T> n = new NodoDoble<>();
         n.setInfo(dato);
 
         if (inicio == null) {
+            
             inicio = fin = n;
             n.setSig(inicio);
             n.setAnt(inicio);
         } else {
+           
             n.setSig(inicio);
             n.setAnt(fin);
             fin.setSig(n);
-            n.setAnt(fin);
+            inicio.setAnt(n);
             fin = n;
         }
     }
@@ -83,24 +102,24 @@ public class ListaCircularDoble<T> {
         }
     }
 
-
     public ArrayList<Integer> mostrarLista() {
         NodoDoble<T> r = inicio;
         ArrayList<Integer> contenido = new ArrayList<>();
 
         if (inicio != null) {
             do {
-                contenido.add((Integer)r.getInfo());
+                contenido.add((Integer) r.getInfo());
 
                 r = r.getSig();
             } while (r != inicio);
         } else {
-            
+
             System.out.println("Lista Vacia");
         }
 
         return contenido;
     }
+
     public String ToStringRecursivo() {
         return mostrarRecursivo(inicio);
     }
@@ -240,7 +259,7 @@ public class ListaCircularDoble<T> {
             return;
         }
 
-        NodoDoble<T> nuevo = new NodoDoble<>(dato,null,null);
+        NodoDoble<T> nuevo = new NodoDoble<>(dato, null, null);
 
         if (posicion == 0) {
             nuevo.setSig(inicio);
@@ -277,11 +296,12 @@ public class ListaCircularDoble<T> {
             }
         }
     }
-        public ArrayList<Integer> ordenarLista(){
-            
-            ArrayList<Integer> orden= mostrarLista();
-   
-            orden.sort((o1, o2) -> o1.compareTo(o2));
-            return orden;
-        }
+
+    public ArrayList<Integer> ordenarLista() {
+
+        ArrayList<Integer> orden = mostrarLista();
+
+        orden.sort((o1, o2) -> o1.compareTo(o2));
+        return orden;
+    }
 }

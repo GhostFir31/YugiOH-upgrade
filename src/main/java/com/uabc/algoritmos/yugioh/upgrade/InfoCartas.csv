@@ -1,4 +1,4 @@
-id,name,type,desc,atk,def,level,attribute
+id,name,type,desc,atq,def,lvl,atribute
 62113340,Divine Dragon Ragnarok,Normal Monster,"A legendary dragon sent by the gods as their instrument. Legends say that if provoked, the whole world will sink beneath the sea.",1500,1000,4,LIGHT
 90299015,Vampire Ghost,Effect Monster,"If this card is Normal Summoned: You can send 1 other ""Vampire"" card from your hand or face-up field to the GY; add 1 Level 4 or higher ""Vampire"" monster from your Deck to your hand, and if you do, send 1 Level 2 or lower ""Vampire"" monster from your Deck to the GY. During the Main Phase (Quick Effect): You can banish this card from your GY and pay 500 LP; immediately after this effect resolves, Normal Summon 1 ""Vampire"" monster. You can only use each effect of ""Vampire Ghost"" once per turn.",1500,0,3,DARK
 83656563,Fossil Machine Skull Wagon,Fusion Monster,"1 Rock monster in your GY + 1 Level 5 or 6 monster

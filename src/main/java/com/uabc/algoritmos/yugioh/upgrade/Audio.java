@@ -19,8 +19,8 @@ public class Audio {
     }
 
     private void initializeClip() {
-      // File file = new File("C:\\Users\\omar-\\OneDrive\\Documentos\\NetBeansProjects\\Yugioh\\src\\main\\java\\com\\practica4\\yugioh\\ost.wav");
-       File file = new File("/home/omarleal/NetBeansProjects/YuGiOh/src/main/java/com/practica4/yugioh/ost.wav");
+       File file = new File("C:\\Users\\omar-\\OneDrive\\Documentos\\NetBeansProjects\\Yugioh\\src\\main\\java\\com\\practica4\\yugioh\\ost.wav");
+      // File file = new File("/home/omarleal/NetBeansProjects/YuGiOh/src/main/java/com/practica4/yugioh/ost.wav");
         AudioInputStream audioStream = null;
         try {
             audioStream = AudioSystem.getAudioInputStream(file);

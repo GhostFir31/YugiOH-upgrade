@@ -7,6 +7,7 @@ package com.uabc.algoritmos.yugioh.upgrade;
 import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,7 +19,7 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
     /**
      * Creates new form VentanaOrdenamientos
      */
-    public static ListaDoble<String[]> cartas;
+    public static ListaCircularDoble<String[]> cartas;
 
     NodoDoble<String[]> current;
 
@@ -38,10 +39,10 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        derecha = new javax.swing.JButton();
+        inicio = new javax.swing.JButton();
+        fin = new javax.swing.JButton();
+        izquierda = new javax.swing.JButton();
         CartaPanel = new javax.swing.JPanel();
         imageLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -61,36 +62,44 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         DescripcionTEXT = new javax.swing.JTextArea();
         NumeroCartaTEXT = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        InicioImagen = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        SigImagen = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        AntImagen = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        FinImagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jButton2.setText(">");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        derecha.setText(">");
+        derecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                derechaActionPerformed(evt);
             }
         });
 
-        jButton3.setText("<<");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        inicio.setText("<<");
+        inicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                inicioActionPerformed(evt);
             }
         });
 
-        jButton4.setText(">>");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        fin.setText(">>");
+        fin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                finActionPerformed(evt);
             }
         });
 
-        jButton5.setText("<");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        izquierda.setText("<");
+        izquierda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                izquierdaActionPerformed(evt);
             }
         });
 
@@ -156,7 +165,7 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
                                 .addComponent(NombreTEXT))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 661, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,28 +223,92 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(InicioImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(InicioImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+        );
+
+        jPanel7.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(SigImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(SigImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel8.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(AntImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(AntImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel12.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(FinImagen, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(FinImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(NumeroCartaTEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(CartaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(izquierda, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(150, 150, 150)
+                        .addComponent(NumeroCartaTEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                        .addComponent(derecha, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(fin, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(148, 148, 148))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,15 +317,21 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(CartaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NumeroCartaTEXT, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton3)
-                        .addComponent(jButton4)
-                        .addComponent(jButton2)
-                        .addComponent(jButton5)))
-                .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(izquierda)
+                        .addComponent(inicio)
+                        .addComponent(derecha)
+                        .addComponent(fin))
+                    .addComponent(NumeroCartaTEXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -273,61 +352,57 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_NombreTEXTActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void derechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_derechaActionPerformed
 
         if (cartas.getInicio() != null) {
-            if (current != null && current.getSig() != null) {
+            if (current != null && current.getSig() != cartas.getInicio()) {
                 current = current.getSig();
-                escribirInfo(current);
             } else {
-                JOptionPane.showMessageDialog(this, "Este es el Fin de la lista", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+                current = cartas.getInicio();
             }
+            escribirInfo(current);
         } else {
             JOptionPane.showMessageDialog(this, "No hay cartas en la lista", "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
+    }//GEN-LAST:event_derechaActionPerformed
 
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void finActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finActionPerformed
         if (cartas.getInicio() != null) {
-
-            while (current.getSig() != null) {
+            while (current.getSig() != cartas.getInicio()) {
                 current = current.getSig();
             }
-
             escribirInfo(current);
         } else {
-
             JOptionPane.showMessageDialog(this, "La lista de cartas está vacía", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_finActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void izquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_izquierdaActionPerformed
+
         if (cartas.getInicio() != null) {
-            if (current != null && current.getAnt() != null) {
+            if (current != null) {
                 current = current.getAnt();
-                escribirInfo(current);
+
+                if (current == null) {
+                    current = cartas.getFin();
+                }
             } else {
-                JOptionPane.showMessageDialog(this, "Ya estas en el Inicio de la lista", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+                current = cartas.getFin();
             }
+            escribirInfo(current);
         } else {
             JOptionPane.showMessageDialog(this, "No hay cartas en la lista", "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_izquierdaActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed
         if (cartas.getInicio() != null) {
-
-            while (current.getAnt() != null) {
-                current = current.getAnt();
-            }
-
+            current = cartas.getInicio();
             escribirInfo(current);
         } else {
-
             JOptionPane.showMessageDialog(this, "La lista de cartas está vacía", "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_inicioActionPerformed
 
     public void escribirInfo(NodoDoble<String[]> current) {
 
@@ -345,7 +420,7 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
         DescripcionTEXT.setLineWrap(true);
         DescripcionTEXT.setWrapStyleWord(true);
 
-        setImagen(id);
+        setImagen(id, imageLabel);
         NombreTEXT.setText(name);
         TipoTEXT.setText(type);
         DescripcionTEXT.setText(desc);
@@ -354,18 +429,38 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
         NivelTEXT.setText(level);
         AtributoTEXT.setText(attribute);
         mostrarPosicion(id);
+
+        NodoDoble<String[]> nodoAnterior = current.getAnt();
+        NodoDoble<String[]> nodoSiguiente = current.getSig();
+        NodoDoble<String[]> nodoInicio = cartas.getInicio();
+        NodoDoble<String[]> nodoFinal = cartas.getFin();
+
+        if (nodoInicio != null) {
+            setImagen(nodoInicio.getInfo()[0], InicioImagen);
+        }
+        if (nodoAnterior != null) {
+            setImagen(nodoAnterior.getInfo()[0], AntImagen);
+        }
+
+        if (nodoSiguiente != null) {
+            setImagen(nodoSiguiente.getInfo()[0], SigImagen);
+        }
+
+        if (nodoFinal != null) {
+            setImagen(nodoFinal.getInfo()[0], FinImagen);
+        }
     }
 
-    private void setImagen(String id) {
+    private void setImagen(String id, JLabel label) {
 
-        //String rutaImagen = "C:\\Users\\omar-\\OneDrive\\Documentos\\NetBeansProjects\\Yugioh\\src\\main\\java\\com\\practica4\\yugioh\\cartas\\" + id + ".jpg";
-        String rutaImagen = "/home/omarleal/NetBeansProjects/YuGiOh/src/main/java/com/practica4/yugioh/cartas/" + id + ".jpg";
+        String rutaImagen = "C:\\Users\\omar-\\OneDrive\\Documentos\\NetBeansProjects\\Yugioh\\src\\main\\java\\com\\practica4\\yugioh\\cartas\\" + id + ".jpg";
+        // String rutaImagen = "/home/omarleal/NetBeansProjects/YuGiOh/src/main/java/com/practica4/yugioh/cartas/" + id + ".jpg";
         File archivoImagen = new File(rutaImagen);
         if (archivoImagen.exists()) {
 
             ImageIcon imagenIcono = new ImageIcon(rutaImagen);
-            Image imagen = imagenIcono.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH);
-            imageLabel.setIcon(new ImageIcon(imagen));
+            Image imagen = imagenIcono.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH);
+            label.setIcon(new ImageIcon(imagen));
         } else {
 
             JOptionPane.showMessageDialog(this, "Imagen no encontrada: " + id, "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -376,7 +471,7 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
         NodoDoble<String[]> current = cartas.getInicio();
         int posicion = 1;
 
-        while (current != null) {
+        do {
             String[] carta = current.getInfo();
             String idActual = carta[0];
 
@@ -386,20 +481,20 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
 
             current = current.getSig();
             posicion++;
-        }
+        } while (current != cartas.getInicio());
 
         return -1;
     }
 
     public int contarCartas() {
-
         NodoDoble<String[]> current = cartas.getInicio();
         int numCartas = 0;
 
-        while (current != null) {
-
-            current = current.getSig();
-            numCartas++;
+        if (current != null) {
+            do {
+                current = current.getSig();
+                numCartas++;
+            } while (current != cartas.getInicio());
         }
 
         return numCartas;
@@ -409,10 +504,8 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
         int posicion = encontrarPosicionPorID(id);
 
         if (posicion != -1) {
-
             NumeroCartaTEXT.setText("" + posicion + "/" + contarCartas());
         } else {
-
             JOptionPane.showMessageDialog(this, "ID no encontrado en la lista: " + id, "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -454,20 +547,24 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AntImagen;
     private javax.swing.JTextField AtaqueTEXT;
     private javax.swing.JTextField AtributoTEXT;
     private javax.swing.JPanel CartaPanel;
     private javax.swing.JTextField DefensaTEXT;
     private javax.swing.JTextArea DescripcionTEXT;
+    private javax.swing.JLabel FinImagen;
+    private javax.swing.JLabel InicioImagen;
     private javax.swing.JTextField NivelTEXT;
     private javax.swing.JTextField NombreTEXT;
     private javax.swing.JLabel NumeroCartaTEXT;
+    private javax.swing.JLabel SigImagen;
     private javax.swing.JTextField TipoTEXT;
+    private javax.swing.JButton derecha;
+    private javax.swing.JButton fin;
     private javax.swing.JLabel imageLabel;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton inicio;
+    private javax.swing.JButton izquierda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -476,7 +573,17 @@ public class VentanaOrdenamientos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

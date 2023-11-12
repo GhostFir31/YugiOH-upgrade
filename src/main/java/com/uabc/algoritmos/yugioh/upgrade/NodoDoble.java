@@ -1,5 +1,7 @@
 package com.uabc.algoritmos.yugioh.upgrade;
 
+import java.util.Arrays;
+
 public class NodoDoble<T> {
 
     private T info;
@@ -7,15 +9,17 @@ public class NodoDoble<T> {
     private NodoDoble<T> ant;
 
     public NodoDoble(T dato, NodoDoble<T> sig, NodoDoble<T> ant) {
-
-        this.info = dato;
+       
         this.sig = sig;
+        this.info = dato;
         this.ant = ant;
 
     }
 
     public NodoDoble() {
-
+        this.info = null;
+        this.sig = null;
+        this.ant = null;
     }
 
     public NodoDoble<T> getSig() {
@@ -47,12 +51,13 @@ public class NodoDoble<T> {
 
     public void setInfo(T dato) {
 
-        this.info=dato;
+        this.info = dato;
     }
 
-    public String toString(){
-
-        return ""+ant+""+info+""+sig;
-
+    public String toString() {
+        if (info instanceof Object[]) {
+            return Arrays.toString((Object[]) info);
+        }
+        return String.valueOf(info);
     }
 }

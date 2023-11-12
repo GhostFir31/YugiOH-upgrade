@@ -10,20 +10,20 @@ import java.util.logging.Logger;
 
 public class LectorCSV {
 
-    public static ListaDoble<String[]> cartas;
+    public static ListaCircularDoble<String[]> cartas;
     boolean primeraLinea = true;
 
     public LectorCSV() {
 
-        cartas = new ListaDoble<>();
-        
+        cartas = new ListaCircularDoble<>();
+
     }
 
-    public static ListaDoble<String[]> getCartas() {
+    public static ListaCircularDoble<String[]> getCartas() {
         return cartas;
     }
 
-    public void setCartas(ListaDoble<String[]> cartas) {
+    public void setCartas(ListaCircularDoble<String[]> cartas) {
         this.cartas = cartas;
     }
 
@@ -33,8 +33,8 @@ public class LectorCSV {
         CSVReader csvReader = null;
 
         try {
-            //archCSV = new FileReader("C:\\Users\\omar-\\OneDrive\\Documentos\\NetBeansProjects\\Yugioh\\src\\main\\java\\com\\practica4\\yugioh\\InfoCartas.csv");
-           archCSV = new FileReader("/home/omarleal/NetBeansProjects/YuGiOh/src/main/java/com/practica4/yugioh/InfoCartas.csv");
+            archCSV = new FileReader("C:\\Users\\omar-\\OneDrive\\Documentos\\NetBeansProjects\\Yugioh\\src\\main\\java\\com\\practica4\\yugioh\\InfoCartas.csv");
+            //archCSV = new FileReader("/home/omarleal/NetBeansProjects/YuGiOh/src/main/java/com/practica4/yugioh/InfoCartas.csv");
             CSVParser coma = new CSVParserBuilder().withSeparator(',').build();
             csvReader = new CSVReaderBuilder(archCSV).withCSVParser(coma).build();
 
@@ -69,23 +69,48 @@ public class LectorCSV {
 
     public void clear() {
 
-        this.cartas = new ListaDoble<>();
+        this.cartas = new ListaCircularDoble<>();
 
     }
 
+//modificado
     public void eliminarCarta(NodoDoble<String[]> nodo) {
-        if (nodo == null || nodo.getAnt() == null) {
-           
+        if (nodo == null || cartas.getInicio() == null) {
             return;
         }
 
-        NodoDoble<String[]> anterior = nodo.getAnt();
         NodoDoble<String[]> siguiente = nodo.getSig();
+        NodoDoble<String[]> anterior = nodo.getAnt();
+
+        if (nodo == cartas.getInicio()) {
+            cartas.setInicio(siguiente);
+        }
+
+        if (nodo == cartas.getFin()) {
+            cartas.setFin(anterior);
+        }
 
         anterior.setSig(siguiente);
-        if (siguiente != null) {
-            siguiente.setAnt(anterior);
+        siguiente.setAnt(anterior);
+
+        if (cartas.getInicio() != null && cartas.getFin() != null) {
+            cartas.getInicio().setAnt(cartas.getFin());
+            cartas.getFin().setSig(cartas.getInicio());
         }
+    }
+
+    public int contarCartas() {
+        NodoDoble<String[]> current = cartas.getInicio();
+        int numCartas = 0;
+
+        if (current != null) {
+            do {
+                current = current.getSig();
+                numCartas++;
+            } while (current != cartas.getInicio());
+        }
+
+        return numCartas;
     }
 
 }
